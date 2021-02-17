@@ -4,7 +4,7 @@ export const QuestionsConst = [
 		last: false,
 		form: 'category1',
 		category: 'Growth Virtue',
-		title: 'Grit: ',
+		title: 'Grit ',
 		question: 'Passion to strive for long-term goals.',
 	},
 	{
@@ -12,7 +12,7 @@ export const QuestionsConst = [
 		last: false,
 		form: 'category1',
 		category: 'Growth Virtue',
-		title: 'Self-Determination: ',
+		title: 'Self-Determination ',
 		question: 'The ability to confidently make independent decisions.',
 	},
 	{
@@ -20,7 +20,7 @@ export const QuestionsConst = [
 		last: false,
 		form: 'category1',
 		category: 'Growth Virtue',
-		title: 'Conscientiousness: ',
+		title: 'Conscientiousness ',
 		question: 'Passion to keep work efficiently organized.',
 	},
 	{
@@ -28,7 +28,7 @@ export const QuestionsConst = [
 		last: false,
 		form: 'category1',
 		category: 'Growth Virtue',
-		title: 'Intergenerational Reflection: ',
+		title: 'Intergenerational Reflection ',
 		question:
 			'Continuous learning through self- and other generational experiences.',
 	},
@@ -37,7 +37,7 @@ export const QuestionsConst = [
 		last: false,
 		form: 'category1',
 		category: 'Growth Virtue',
-		title: 'Resilience: ',
+		title: 'Resilience ',
 		question:
 			'The ability to recover psychologically and emotionally after failures.',
 	},
@@ -46,7 +46,7 @@ export const QuestionsConst = [
 		last: false,
 		form: 'category2',
 		category: 'Effectual Creativity',
-		title: 'Foresight Skill: ',
+		title: 'Foresight Skill ',
 		question: `The ability to validate factors influencing the formulation
 		of innovative strategies for the future of the business.`,
 	},
@@ -55,7 +55,7 @@ export const QuestionsConst = [
 		last: false,
 		form: 'category2',
 		category: 'Effectual Creativity',
-		title: 'Global Design Thinking: ',
+		title: 'Global Design Thinking ',
 		question: `The ability to systematically demonstrate global
 		products/solutions based on local value/design.`,
 	},
@@ -64,7 +64,7 @@ export const QuestionsConst = [
 		last: false,
 		form: 'category3',
 		category: 'Technical Domain Specific',
-		title: 'Financial Negotiation: ',
+		title: 'Financial Negotiation ',
 		question: 'The ability to gain and leverage funding.',
 	},
 	{
@@ -72,7 +72,7 @@ export const QuestionsConst = [
 		last: false,
 		form: 'category3',
 		category: 'Technical Domain Specific',
-		title: 'Business Storytelling: ',
+		title: 'Business Storytelling ',
 		question:
 			'The ability to formulate an engaging narration of the desired business idea(s).',
 	},
@@ -81,7 +81,7 @@ export const QuestionsConst = [
 		last: false,
 		form: 'category3',
 		category: 'Technical Domain Specific',
-		title: 'Digital Information Fluency: ',
+		title: 'Digital Information Fluency ',
 		question:
 			'The ability to analyze and optimize the use of digital information and technology.',
 	},
@@ -99,7 +99,7 @@ export const QuestionsConst = [
 		last: false,
 		form: 'category4',
 		category: 'Responsive Teamwork',
-		title: 'Intergenerational Orientation: ',
+		title: 'Intergenerational Orientation ',
 		question:
 			'Passion for empowering intergenerational cooperation in the innovation process.',
 	},
@@ -108,7 +108,7 @@ export const QuestionsConst = [
 		last: false,
 		form: 'category4',
 		category: 'Responsive Teamwork',
-		title: 'Conflict Resolution: ',
+		title: 'Conflict Resolution ',
 		question:
 			'The ability to turn any potential for social conflict into an opportunity.',
 	},
@@ -117,7 +117,7 @@ export const QuestionsConst = [
 		last: false,
 		form: 'category4',
 		category: 'Responsive Teamwork',
-		title: 'Active Listening: ',
+		title: 'Active Listening ',
 		question:
 			'The ability to confirm understanding of what others express verbally.',
 	},
@@ -126,7 +126,7 @@ export const QuestionsConst = [
 		last: false,
 		form: 'category5',
 		category: 'Value-based dynamic organizing',
-		title: 'Visioning: ',
+		title: 'Visioning ',
 		question: `The ability to clearly pursue and coordinate team goals and standards.
 		Imagining the future of the business.`,
 	},
@@ -135,7 +135,7 @@ export const QuestionsConst = [
 		last: false,
 		form: 'category5',
 		category: 'Value-based dynamic organizing',
-		title: 'Personal Resource Allocation: ',
+		title: 'Personal Resource Allocation ',
 		question:
 			'The ability to optimally mobilize the use of personal resources.',
 	},
@@ -144,7 +144,7 @@ export const QuestionsConst = [
 		last: false,
 		form: 'category5',
 		category: 'Value-based dynamic organizing',
-		title: 'Quality Orientation: ',
+		title: 'Quality Orientation ',
 		question: 'Consistent focus on the quality to be achieved.',
 	},
 	{
@@ -152,7 +152,7 @@ export const QuestionsConst = [
 		last: false,
 		form: 'category5',
 		category: 'Value-based dynamic organizing',
-		title: 'Decisiveness: ',
+		title: 'Decisiveness ',
 		question:
 			'The ability to quickly put calculated risks into actionable policies.',
 	},
@@ -161,7 +161,7 @@ export const QuestionsConst = [
 		last: false,
 		form: 'category6',
 		category: 'Long-term oriented Networking',
-		title: 'Effective Communication: ',
+		title: 'Effective Communication ',
 		question:
 			'Ability to communicate comprehensively by all necessary means.',
 	},
@@ -170,7 +170,7 @@ export const QuestionsConst = [
 		last: false,
 		form: 'category6',
 		category: 'Long-term oriented Networking',
-		title: 'Transparency: ',
+		title: 'Transparency ',
 		question:
 			'The ability to share clarified and updated information with others.',
 	},
@@ -179,7 +179,7 @@ export const QuestionsConst = [
 		last: false,
 		form: 'category6',
 		category: 'Long-term oriented Networking',
-		title: 'Influencing: ',
+		title: 'Influencing ',
 		question:
 			'The ability to influence others in a particular perspective.',
 	},
@@ -188,7 +188,7 @@ export const QuestionsConst = [
 		last: false,
 		form: 'category6',
 		category: 'Long-term oriented Networking',
-		title: 'Auxiliary Skill: ',
+		title: 'Auxiliary Skill ',
 		question: 'The ability to support others in making progress.',
 	},
 	{
@@ -196,7 +196,7 @@ export const QuestionsConst = [
 		last: false,
 		form: 'category7',
 		category: 'Cultural Empathy',
-		title: 'Pluralist Thinking: ',
+		title: 'Pluralist Thinking ',
 		question: `Ability to avoid a negative judgement on the heterogeneity of cultural and
 		physical functions.`,
 	},
@@ -205,7 +205,7 @@ export const QuestionsConst = [
 		last: false,
 		form: 'category7',
 		category: 'Cultural Empathy',
-		title: 'Digital Empathy: ',
+		title: 'Digital Empathy ',
 		question: `The ability to appropriately understand and express feeling or emotion in
 		digital environments.`,
 	},
@@ -214,7 +214,7 @@ export const QuestionsConst = [
 		last: false,
 		form: 'category8',
 		category: 'Intergenerational Safety Facilitation',
-		title: 'Intergenerational Flexibility: ',
+		title: 'Intergenerational Flexibility ',
 		question: `Open-mindedness, especially when working with the different generations and
 		with new ideas.`,
 	},
@@ -223,7 +223,7 @@ export const QuestionsConst = [
 		last: false,
 		form: 'category8',
 		category: 'Intergenerational Safety Facilitation',
-		title: 'Intergenerational Leadership: ',
+		title: 'Intergenerational Leadership ',
 		question: `Ability to actuate people from different generational background toward
 		desired destination coordinately.`,
 	},
@@ -232,7 +232,7 @@ export const QuestionsConst = [
 		last: true,
 		form: 'category8',
 		category: 'Intergenerational Safety Facilitation',
-		title: 'Intergenerational Digital Adaptability: ',
+		title: 'Intergenerational Digital Adaptability ',
 		question: `Ability to optimise the use of digital media to fit into a new,
 		intergenerational innovation space.`,
 	},

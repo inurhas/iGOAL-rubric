@@ -1,10 +1,16 @@
 <header class="header">
 	<mat-toolbar color="accent">
 		<button mat-icon-button
-			class="example-icon">
+			class="example-icon"
+			id="btn-print"
+			style="display:none"
+			(click)="printResult()">
+			<mat-icon class="print-button">print</mat-icon> print
+		</button>
+		<button mat-icon-button
+			class="example-icon" id="btn-share">
 			<mat-icon>share</mat-icon>
 		</button>
-
 		<span routerLink="/"
 			class="ml-auto pointer">
 			<img src="../../../../assets/images/logo.jpg"

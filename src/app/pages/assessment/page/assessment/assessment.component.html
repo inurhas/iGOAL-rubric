@@ -146,7 +146,7 @@
 								<div>
 									<label class="font-xbold font-26px font-xs-18px">
 										{{ option.title }}: <br />
-										<p class="font-sbold">
+										<p class="font-weight-normal">
 											{{ option.question }}
 										</p>
 									</label>
@@ -159,9 +159,18 @@
 										[formControlName]="'q' + option.id"
 										(change)="updateAverage(option)">
 										<mat-radio-button class="flex-radio-button"
-											*ngFor="let option of answerOption"
+											*ngFor="let option of answerOption; let i = index;"
 											[value]="option.value">
-											<i>{{ option.label }}</i>
+											<i>{{ option.label }}</i> --
+											<span class="text-primary pointer" *ngIf="i === 0"
+												(click)="openCriteriaDialog('none')">Criteria</span>
+											<span class="text-primary pointer" *ngIf="i === 1"
+												(click)="openCriteriaDialog('basic')">Criteria</span>
+											<span class="text-primary pointer" *ngIf="i === 2"
+												(click)="openCriteriaDialog('advanced')">Criteria</span>
+											<span class="text-primary pointer" *ngIf="i === 3"
+												(click)="openCriteriaDialog('expert')">Criteria</span>
+
 										</mat-radio-button>
 									</mat-radio-group>
 								</div>
@@ -191,28 +200,73 @@
 </div>
 
 <div class="assessment row m-0" style="min-height: 100vh;"
-	*ngIf="isLast">
+	*ngIf="isLast" id="print-reports">
+	<div class="col-md-12 col-sm-12 col-lg-6 col-12 m-0 p-0" id="print-reports1">
+		<div class="classification">
+			<div class="mx-auto">
+				<ng-container>
+					<p class="font-22px font-xs-18px font-sbold text-center mb-1">
+						iGOAL-Rubric Reports
+					</p>
+					<br>
+					<div class="mb-3 d-xl-block"
+							 [style.height.px]="dynHeight">
+						<canvas baseChart
+										[datasets]="radarChartData"
+										[options]="radarChartReportOptions"
+										[labels]="radarChartLabels"
+										[chartType]="radarChartType">
+						</canvas>
+					</div>
+
+					<p class="font-20px font-xs-16px font-sbold text-center mb-1">
+						Your iGOAL-readiness Score:
+						<br>
+						<span class="font-26px font-xs-22px">
+						{{ assessment.score }} / 100
+					</span>
+					</p>
+
+					<p class="font-22px font-xs-18px font-sbold text-center mb-3">
+						Classification:
+
+						<mat-icon *ngFor="let item of assessment.stars">
+							{{ item }}
+						</mat-icon>
+
+						iGOAL-{{ assessment.classification }}
+					</p>
+
+					<p class="font-18px font-xs-12px font-sbold text-justify my-3 mx-3 mb-3rem">
+						{{ assessment.text }}
+					</p>
+				</ng-container>
+			</div>
+		</div>
+	</div>
+
+
 	<div class="reports background03 col-md-12 col-sm-12 col-lg-6 col-12 m-0 p-0">
 		<div class="reports-container">
-
 			<div class="grey w-98 w-97 m-2">
 				<p class="font-20px font-xs-16px font-sbold text-center mb-0">
-					Reports
+					Analysis
 				</p>
 
 				<p class="font-20px font-xs-16px font-sbold text-center mb-1">
 					Readiness Analysis based on innovation process
 				</p>
 
-				<div class="table-responsive">
+				<div class="">
 					<table class="table table-bordered bg-white">
 						<thead>
 							<tr>
 								<th>Global Innovation Process</th>
 								<th style="background-color: #a9d08e !important;">Ideation process</th>
 								<th style="background-color: #f4b084 !important;">Matching process</th>
-								<th style="background-color: #9bc2e6 !important;">Design and Development</th>
-								<th style="background-color: #c9c9c9 !important;">Commercialization</th>
+								<th style="background-color: #9bc2e6 !important; ">Design and Development</th>
+								<th class="d-none d-sm-block text-truncate" style="background-color: #c9c9c9 !important;">Commercialization</th>
+								<th class="d-block d-sm-none " style="background-color: #c9c9c9 !important;">Commercia lization</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -341,43 +395,4 @@
 		</div>
 	</div>
 
-  <div class="col-md-12 col-sm-12 col-lg-6 col-12 m-0 p-0">
-    <div class="classification">
-      <div class="mx-auto">
-        <ng-container>
-          <div class="mb-3 d-xl-block"
-               [style.height.px]="dynHeight">
-            <canvas baseChart
-                    [datasets]="radarChartData"
-                    [options]="radarChartReportOptions"
-                    [labels]="radarChartLabels"
-                    [chartType]="radarChartType">
-            </canvas>
-          </div>
-
-          <p class="font-22px font-xs-18px font-sbold text-center mb-1">
-            Your iGOAL-readiness Score:
-            <br>
-            <span class="font-26px font-xs-22px">
-						{{ assessment.score }} / 100
-					</span>
-          </p>
-
-          <p class="font-22px font-xs-18px font-sbold text-center mb-3">
-            Classification:
-
-            <mat-icon *ngFor="let item of assessment.stars">
-              {{ item }}
-            </mat-icon>
-
-            iGOAL-{{ assessment.classification }}
-          </p>
-
-          <p class="font-18px font-xs-12px font-sbold text-justify my-3 mx-3 mb-3rem">
-            {{ assessment.text }}
-          </p>
-        </ng-container>
-      </div>
-    </div>
-  </div>
 </div>

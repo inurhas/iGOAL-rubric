@@ -286,7 +286,7 @@ export class AssessmentModel {
 			average > halfReady * constant &&
 			average <= almostReady * constant
 		) {
-			str = 'Half-Ready';
+			str = 'Half Ready';
 		} else {
 			str = 'Unprepared';
 		}

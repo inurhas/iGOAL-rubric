@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { MatDialog } from '@angular/material';
 import {
 	ChartDataSets,
 	ChartOptions,
@@ -11,6 +13,7 @@ import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { Label } from 'ng2-charts';
 import { BaseOptionModel } from '../../../../core/model';
 import { generateEnumOption } from '../../../../core/util';
+import { AssessmentDialogComponent } from '../../dialog/assessment-dialog';
 import {
 	BarChartLabelsConst,
 	BarChartOptionsConst,
@@ -18,6 +21,10 @@ import {
 	RadarChartConst,
 	RadarChartLabelConst,
 	RadarChartReportConst,
+	CriteriaAdvancedConst,
+	CriteriaBasicConst,
+	CriteriaExpertConst,
+	CriteriaNoneConst
 } from '../../shared/const';
 import {
 	AdvancedConst,
@@ -69,9 +76,14 @@ export class AssessmentComponent implements OnInit {
 	public barChartDataDesign: ChartDataSets[];
 	public barChartDataCommercial: ChartDataSets[];
 
-	constructor(private router: Router) {}
+
+	private subscribers: Subscription[];
+	private content: string;
+	constructor(private router: Router,  private dialog: MatDialog) {}
+
 
 	ngOnInit() {
+		this.subscribers = [];
 		this.isLast = false;
 		this.selectedStep = 0;
 		this.questionOption = QuestionsConst;
@@ -332,6 +344,10 @@ export class AssessmentComponent implements OnInit {
 	public lastStep(last: boolean) {
 		if (last) {
 			this.isLast = last;
+			let btnShare = document.getElementById("btn-share");
+			btnShare.style.display = "none";
+			let btnPrint = document.getElementById("btn-print");
+			btnPrint.style.display = "block";
 			this.initStar();
 		}
 	}
@@ -364,6 +380,47 @@ export class AssessmentComponent implements OnInit {
 			this.assessment.classification = ExpertConst.title;
 			this.assessment.stars = ExpertConst.star;
 			this.assessment.text = ExpertConst.text;
+		}
+	}
+
+	public openCriteriaDialog(
+		criteria: 'none' | 'basic' | 'advanced' | 'expert'
+	) {
+		this.criteriaText(criteria);
+
+		const subs = this.dialog
+			.open(AssessmentDialogComponent, {
+				width: '500px',
+				data: {
+					content: this.content,
+				},
+			})
+			.afterClosed()
+			.subscribe();
+
+		this.subscribers.push(subs);
+	}
+
+	private criteriaText(criteria: 'none' | 'basic' | 'advanced' | 'expert') {
+		switch (criteria) {
+			case 'none':
+				this.content = CriteriaNoneConst;
+				break;
+
+			case 'basic':
+				this.content = CriteriaBasicConst;
+				break;
+
+			case 'advanced':
+				this.content = CriteriaAdvancedConst;
+				break;
+
+			case 'expert':
+				this.content = CriteriaExpertConst;
+				break;
+
+			default:
+				break;
 		}
 	}
 
