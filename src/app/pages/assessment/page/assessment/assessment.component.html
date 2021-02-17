@@ -1,0 +1,383 @@
+<div class="assessment h-100 row m-0"
+	*ngIf="!isLast">
+	<div *ngIf="selectedStep === 0" class="score col-md-6 col-sm-12 col-lg-6 col-12 m-0 p-0 d-flex justify-content-center py-5">
+    <p class="align-self-center font-32px font-xs-18px mx-5 mt-2">
+      Team diversity and generational differences are one of
+      the novel keys to developing a global business model.
+    </p>
+  </div>
+
+	<div *ngIf="selectedStep > 0" class="score col-md-6 col-sm-12 col-lg-6 col-12 m-0 p-0 py-5">
+    <ng-container class="py-5">
+				<div class="mb-3 d-xl-block d-none d-sm-block d-sm-none d-md-block">
+					<canvas baseChart
+						[datasets]="radarChartData"
+						[options]="radarChartOptions"
+						[labels]="radarChartLabels"
+						[chartType]="radarChartType">
+					</canvas>
+				</div>
+
+        <br>
+
+				<p class="font-22px font-xs-20px font-sbold text-center mb-0">
+					Your iGOAL-readiness Score:
+				</p>
+
+				<p class="font-30px font-xs-22px font-sbold text-center  mb-1">
+          {{ assessment.score }} / 100
+				</p>
+    </ng-container>
+	</div>
+
+	<div class="question col-md-6 col-sm-12 col-lg-6 col-12 m-0 p-0"
+		[ngClass]="{
+			'background03': stepper.selectedIndex < 6,
+			'background04': stepper.selectedIndex > 5 && stepper.selectedIndex < 8,
+			'background05': stepper.selectedIndex > 7 && stepper.selectedIndex < 12,
+			'background06': stepper.selectedIndex > 11 && stepper.selectedIndex < 15,
+			'background07': stepper.selectedIndex > 14 && stepper.selectedIndex < 19,
+			'background08': stepper.selectedIndex > 18 && stepper.selectedIndex < 23,
+			'background09': stepper.selectedIndex > 22 && stepper.selectedIndex < 25,
+			'background010': stepper.selectedIndex > 24
+		}">
+		<div class="question-container">
+
+			<mat-horizontal-stepper class="m-4 pt-4 px-4 w-100"
+				#stepper
+				linear
+				labelPosition="bottom"
+				[ngClass]="{
+					'grey': stepper.selectedIndex < 6 ||
+						stepper.selectedIndex > 11 && stepper.selectedIndex < 15 ||
+						stepper.selectedIndex > 22 && stepper.selectedIndex < 25,
+					'blue': stepper.selectedIndex > 5 && stepper.selectedIndex < 8 ||
+						stepper.selectedIndex > 14 && stepper.selectedIndex < 19 ||
+						stepper.selectedIndex > 24,
+					'green': stepper.selectedIndex > 7 && stepper.selectedIndex < 12 ||
+						stepper.selectedIndex > 18 && stepper.selectedIndex < 23
+				}"
+				(selectionChange)="updateSelectedStep($event.selectedIndex)">
+
+				<ng-template matStepperIcon="edit"
+					let-index="index">
+				</ng-template>
+
+				<mat-step [stepControl]="assessmentForm.get('name') &&
+				assessmentForm.get('email') &&
+				assessmentForm.get('organization') &&
+				assessmentForm.get('industry')">
+
+					<div class="mt-2">
+						<form autocomplete="off"
+							[formGroup]="assessmentForm">
+							<section>
+								<mat-form-field class="font-sbold font-0c0c0c">
+									<mat-label>Name</mat-label>
+
+									<input matInput
+										placeholder="Name"
+										formControlName="name"
+										required>
+								</mat-form-field>
+
+								<mat-form-field class="font-sbold font-0c0c0c">
+									<mat-label>Email</mat-label>
+
+									<input matInput
+										placeholder="Email"
+										formControlName="email"
+										required>
+								</mat-form-field>
+
+								<mat-form-field class="font-sbold font-0c0c0c">
+									<mat-label>Organization Name</mat-label>
+
+									<input matInput
+										placeholder="Organization Name"
+										formControlName="organization"
+										required>
+								</mat-form-field>
+
+								<label class="font-xbold font-26px font-xs-18px">
+									Industry Type
+								</label>
+
+								<mat-radio-group class="flex-radio-group font-sbold"
+									formControlName="industry">
+									<mat-radio-button class="flex-radio-button"
+										*ngFor="let option of industryOption"
+										[value]="option.value">
+										<i>{{ option.label }}</i>
+									</mat-radio-button>
+								</mat-radio-group>
+							</section>
+
+							<div class="d-flex">
+								<button mat-raised-button
+									color="accent"
+									type="button"
+									class="rounded-25px mr-2"
+									(click)="navigateToStepInfo()">Back</button>
+
+								<button mat-raised-button
+									matStepperNext
+									color="primary"
+									class="rounded-25px"
+									[disabled]="!assessmentForm.get('name').valid &&
+										!assessmentForm.get('email').valid &&
+										!assessmentForm.get('organization').valid &&
+										!assessmentForm.get('industry').valid">Next</button>
+							</div>
+						</form>
+					</div>
+
+				</mat-step>
+
+				<ng-container *ngFor="let option of questionOption; let i = last">
+					<mat-step [stepControl]="assessmentForm.get('q' + option.id)">
+
+						<div class="mt-2">
+							<form [formGroup]="assessmentForm">
+								<p class="font-sbold font-18px font-xs-16px text-center mb-4">
+									Category: <u>{{ option.category }}</u>
+								</p>
+
+								<div>
+									<label class="font-xbold font-26px font-xs-18px">
+										{{ option.title }}: <br />
+										<p class="font-sbold">
+											{{ option.question }}
+										</p>
+									</label>
+
+									<p class="font-sbold font-18px font-xs-16px mb-0">
+										<i>Your self assessment:</i>
+									</p>
+
+									<mat-radio-group class="flex-radio-group font-sbold"
+										[formControlName]="'q' + option.id"
+										(change)="updateAverage(option)">
+										<mat-radio-button class="flex-radio-button"
+											*ngFor="let option of answerOption"
+											[value]="option.value">
+											<i>{{ option.label }}</i>
+										</mat-radio-button>
+									</mat-radio-group>
+								</div>
+
+								<div class="d-flex">
+									<button mat-raised-button
+										matStepperPrevious
+										color="accent"
+										class="rounded-25px mr-2">Back</button>
+
+									<button mat-raised-button
+										matStepperNext
+										color="primary"
+										class="rounded-25px"
+										(click)="lastStep(i)"
+										[disabled]="!assessmentForm.get('q' + option.id).valid">Next</button>
+								</div>
+							</form>
+						</div>
+
+					</mat-step>
+				</ng-container>
+			</mat-horizontal-stepper>
+
+		</div>
+	</div>
+</div>
+
+<div class="assessment row m-0" style="min-height: 100vh;"
+	*ngIf="isLast">
+	<div class="reports background03 col-md-12 col-sm-12 col-lg-6 col-12 m-0 p-0">
+		<div class="reports-container">
+
+			<div class="grey w-98 w-97 m-2">
+				<p class="font-20px font-xs-16px font-sbold text-center mb-0">
+					Reports
+				</p>
+
+				<p class="font-20px font-xs-16px font-sbold text-center mb-1">
+					Readiness Analysis based on innovation process
+				</p>
+
+				<div class="table-responsive">
+					<table class="table table-bordered bg-white">
+						<thead>
+							<tr>
+								<th>Global Innovation Process</th>
+								<th style="background-color: #a9d08e !important;">Ideation process</th>
+								<th style="background-color: #f4b084 !important;">Matching process</th>
+								<th style="background-color: #9bc2e6 !important;">Design and Development</th>
+								<th style="background-color: #c9c9c9 !important;">Commercialization</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th>Readiness percentage (%)</th>
+								<td class="font-bold text-center">
+									{{ assessment.averageIdeation }}
+								</td>
+								<td class="font-bold text-center">
+									{{ assessment.averageMatching }}
+								</td>
+								<td class="font-bold text-center">
+									{{ assessment.averageDesign }}
+								</td>
+								<td class="font-bold text-center">
+									{{ assessment.averageCommercial }}
+								</td>
+							</tr>
+							<tr>
+								<th>Group of competence</th>
+								<td colspan="4"
+									class="bg-dark"></td>
+							</tr>
+							<tr *ngFor="let report of assessment.reports">
+								<th class="font-medium text-right">
+									{{ report.label }}
+								</th>
+								<td class="text-center"
+									*ngFor="let data of report.data"
+									[ngClass]="{
+										'bg-almost': data === 'Almost Ready',
+										'bg-half': data === 'Half-Ready'
+									}">
+									{{ data }}
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<p class="font-20px font-xs-16px font-sbold text-center mb-1">
+					Readiness Charts
+				</p>
+
+
+        <div class="row mb-2">
+          <div class="col-sm-12 col-md-6 col-lg-6 py-2">
+            <mat-card>
+              <p class="font-14px font-xs-12px font-sbold text-center mb-1">
+                Ideation
+              </p>
+
+              <div style="display: block"
+                   [style.height.px]="dynBarHeight">
+                <canvas baseChart
+                        [datasets]="barChartDataIdeation"
+                        [labels]="barChartLabels"
+                        [options]="barChartOptions"
+                        [plugins]="barChartPlugins"
+                        [chartType]="barChartType">
+                </canvas>
+              </div>
+            </mat-card>
+          </div>
+
+          <div class="col-sm-12 col-md-6 col-lg-6 py-2">
+            <mat-card>
+              <p class="font-14px font-xs-12px font-sbold text-center mb-1">
+                Matching Process
+              </p>
+
+              <div style="display: block"
+                [style.height.px]="dynBarHeight">
+                <canvas baseChart
+                  [datasets]="barChartDataMatching"
+                  [labels]="barChartLabels"
+                  [options]="barChartOptions"
+                  [plugins]="barChartPlugins"
+                  [chartType]="barChartType">
+                </canvas>
+              </div>
+            </mat-card>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-6 py-2">
+            <mat-card>
+              <p class="font-14px font-xs-12px font-sbold text-center mb-1">
+                Design & Development
+              </p>
+
+              <div style="display: block"
+                   [style.height.px]="dynBarHeight">
+                <canvas baseChart
+                        [datasets]="barChartDataDesign"
+                        [labels]="barChartLabels"
+                        [options]="barChartOptions"
+                        [plugins]="barChartPlugins"
+                        [chartType]="barChartType">
+                </canvas>
+              </div>
+            </mat-card>
+          </div>
+
+          <div class="col-sm-12 col-md-6 col-lg-6 py-2">
+            <mat-card>
+              <p class="font-14px font-xs-12px font-sbold text-center mb-1">
+                Commercialization
+              </p>
+
+              <div style="display: block"
+                   [style.height.px]="dynBarHeight">
+                <canvas baseChart
+                        [datasets]="barChartDataCommercial"
+                        [labels]="barChartLabels"
+                        [options]="barChartOptions"
+                        [plugins]="barChartPlugins"
+                        [chartType]="barChartType">
+                </canvas>
+              </div>
+            </mat-card>
+          </div>
+        </div>
+			</div>
+		</div>
+	</div>
+
+  <div class="col-md-12 col-sm-12 col-lg-6 col-12 m-0 p-0">
+    <div class="classification">
+      <div class="mx-auto">
+        <ng-container>
+          <div class="mb-3 d-xl-block"
+               [style.height.px]="dynHeight">
+            <canvas baseChart
+                    [datasets]="radarChartData"
+                    [options]="radarChartReportOptions"
+                    [labels]="radarChartLabels"
+                    [chartType]="radarChartType">
+            </canvas>
+          </div>
+
+          <p class="font-22px font-xs-18px font-sbold text-center mb-1">
+            Your iGOAL-readiness Score:
+            <br>
+            <span class="font-26px font-xs-22px">
+						{{ assessment.score }} / 100
+					</span>
+          </p>
+
+          <p class="font-22px font-xs-18px font-sbold text-center mb-3">
+            Classification:
+
+            <mat-icon *ngFor="let item of assessment.stars">
+              {{ item }}
+            </mat-icon>
+
+            iGOAL-{{ assessment.classification }}
+          </p>
+
+          <p class="font-18px font-xs-12px font-sbold text-justify my-3 mx-3 mb-3rem">
+            {{ assessment.text }}
+          </p>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

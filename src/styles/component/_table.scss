@@ -1,0 +1,74 @@
+@import '../abstracts/variables';
+
+/* TABLE */
+.mat-table {
+	width: 100%;
+	margin-bottom: $spacing-xl;
+	cursor: default;
+	td.mat-cell,
+	td.mat-footer-cell,
+	th.mat-header-cell {
+		&:first-child,
+		&:last-child {
+			padding: $spacing-md;
+		}
+	}
+	thead tr {
+		height: auto !important;
+		th {
+			font-weight: $font-weight-bold;
+			font-size: $font-sm;
+			border-width: 1px;
+			padding: $spacing-md;
+			white-space: nowrap;
+			text-align: center;
+
+			.mat-sort-header-container {
+				justify-content: center;
+			}
+		}
+	}
+	tbody tr {
+		height: auto !important;
+		td {
+			color: $text-color;
+			font-size: $font-sm;
+			padding: $spacing-md;
+			white-space: nowrap;
+			text-align: center;
+		}
+	}
+	&.table-sm {
+		thead th,
+		tbody td {
+			padding: $spacing-sm;
+		}
+		thead th {
+			font-size: $font-sm;
+		}
+		tbody td {
+			font-size: $font-xs;
+		}
+	}
+	&.table-bordered {
+		thead th {
+			border-bottom-width: 1px;
+			border-color: $border-color;
+		}
+	}
+	.bolder {
+		th,
+		td {
+			font-weight: $font-weight-bold;
+		}
+	}
+	.no-content {
+		background: inherit;
+		th {
+			color: $text-color;
+			font-size: $font-md !important;
+			font-weight: $font-weight-light;
+			padding: $spacing-md !important;
+		}
+	}
+}

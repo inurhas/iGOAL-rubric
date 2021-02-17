@@ -1,0 +1,168 @@
+@import '../abstracts/variables';
+
+/* Material */
+.mat-option {
+	font-size: 14px !important;
+	height: 36px !important;
+	line-height: 36px !important;
+	padding: 0 14px !important;
+}
+
+/* Material */
+.mat-form-field {
+	line-height: 18px !important;
+	width: 100%;
+	.mat-form-field-infix {
+		padding: 4px 0;
+	}
+	.mat-form-field-subscript-wrapper {
+		margin-top: 0 !important;
+	}
+	.mat-icon {
+		font-size: 120% !important;
+		line-height: 26px !important;
+	}
+
+	&-disabled {
+		.mat-form-field-flex {
+			background-color: $color-light !important;
+		}
+	}
+}
+
+/* Input Classic */
+.input-classic {
+	.mat-form-field-wrapper {
+		.mat-form-field-prefix,
+		.mat-form-field-infix,
+		.mat-form-field-suffix {
+			align-self: center;
+		}
+		.mat-form-field-infix {
+			color: $black-primary;
+			border-top: none;
+		}
+		.mat-form-field-suffix {
+			display: flex;
+			.mat-datepicker-toggle {
+				display: flex;
+			}
+			.mat-button-wrapper {
+				display: flex;
+				height: 20px;
+				justify-content: space-around;
+			}
+		}
+		.mat-form-field-flex {
+			background: white;
+			border: 1px solid #e1e1e1;
+			border-radius: 3px;
+			padding: 0 8px;
+		}
+		.mat-form-field-underline {
+			display: none;
+		}
+	}
+	.mat-form-field-label {
+		font-size: 14px;
+		top: 1.48125em !important;
+	}
+	.mat-form-field-label-wrapper {
+		line-height: 20px;
+		top: -1.5em;
+		padding-top: 1.5em;
+	}
+	.mat-form-field-label.mat-empty.mat-form-field-empty {
+		transform: translateY(0.6em);
+	}
+	&.mat-form-field-invalid {
+		.mat-form-field-wrapper {
+			.mat-form-field-flex {
+				border-color: #f44336;
+			}
+		}
+	}
+	&.mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float
+		.mat-form-field-label,
+	&.mat-form-field-appearance-legacy.mat-form-field-can-float
+		.mat-input-server:focus
+		+ .mat-form-field-label-wrapper
+		.mat-form-field-label {
+		transform: translateY(-1.3em) scale(0.8) perspective(0) translateZ(0);
+	}
+
+	&.disabled {
+		.mat-form-field-flex {
+			background-color: $color-light !important;
+		}
+	}
+}
+
+/* Input Size */
+.input-sm {
+	.mat-form-field-wrapper {
+		.mat-form-field-flex {
+			font-size: 12px;
+			padding: 0 4px;
+		}
+		.mat-form-field-infix {
+			padding: 2px 0;
+		}
+		.mat-form-field-label-wrapper {
+			line-height: 12px;
+		}
+	}
+}
+
+/* Input number without spinner */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.input-no-hint.mat-form-field {
+	.mat-form-field-wrapper {
+		padding-bottom: 0 !important;
+	}
+}
+
+.pointer-event-disable {
+	-webkit-filter: opacity(0.5);
+	filter: opacity(0.5);
+	pointer-events: none;
+}
+
+/* Mat Select */
+.mat-select-custom {
+	&.mat-select-panel {
+		min-width: calc(100% + 20px);
+		border-radius: 20px;
+		margin-left: 10px;
+		margin-top: 30px;
+		padding: 24px;
+
+		.mat-option {
+			background: transparent;
+			padding: 25px 14px !important;
+
+			&.mat-selected {
+				color: #000000 !important;
+				font-weight: 600;
+				background: transparent !important;
+
+				.mat-option-text {
+					&::after {
+						content: '';
+						top: 10px;
+						right: 10px;
+						width: 24px;
+						height: 24px;
+						position: absolute;
+						background: url('/assets/images/checklist-red.svg');
+					}
+				}
+			}
+		}
+	}
+}

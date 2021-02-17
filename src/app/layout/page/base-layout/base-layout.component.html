@@ -1,0 +1,10 @@
+<div class="wrapper px-0">
+	<app-header></app-header>
+
+	<section class="content slide-top"
+		[@routerTransition]="getState(outlet)">
+		<router-outlet #outlet="outlet"></router-outlet>
+	</section>
+
+	<app-footer></app-footer>
+</div>

@@ -1,0 +1,43 @@
+@import '../abstracts/variables';
+
+button {
+	font-family: $font-family !important;
+	line-height: 30px !important;
+	outline: none !important;
+}
+
+.mat-icon-button {
+	outline: none !important;
+}
+
+.mat-button,
+.mat-button {
+	border: 2px solid $color-border !important;
+	&:disabled {
+		border: 1px solid currentColor !important;
+	}
+}
+
+.mat-stroked-button.mat-primary,
+.mat-flat-button.mat-primary {
+	border: 2px solid $color-primary !important;
+	&:disabled {
+		border: 1px solid currentColor !important;
+		background-color: $color-secondary !important;
+	}
+}
+
+.mat-danger {
+	border: 2px solid $color-danger !important;
+	background-color: $color-danger !important;
+
+	.mat-button-wrapper {
+		color: $bg-white-primary;
+	}
+}
+
+.btn-sm {
+	font-size: $font-sm !important;
+	line-height: 24px !important;
+	min-width: 66px;
+}

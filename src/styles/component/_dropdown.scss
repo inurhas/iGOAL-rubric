@@ -1,0 +1,12 @@
+@import '../abstracts/variables';
+
+.dropdown {
+	z-index: 500 !important;
+}
+
+.dropdown-item {
+	&:focus,
+	&:hover {
+		background-color: $bg-color;
+	}
+}

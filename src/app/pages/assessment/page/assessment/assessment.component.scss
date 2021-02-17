@@ -1,0 +1,236 @@
+.assessment {
+	.bg-almost {
+		background-color: #fff2cc;
+	}
+
+	.bg-half {
+		background-color: #ffe699;
+	}
+
+	.question {
+		width: 50%;
+		height: 100%;
+		max-height: 100%;
+
+		&.background03 {
+			background: url('../../../../../assets/images/background03.jpg')
+				no-repeat left center fixed;
+      background-size: cover;
+		}
+
+		&.background04 {
+			background: url('../../../../../assets/images/background04.jpg')
+				no-repeat left center fixed;
+      background-size: cover;
+		}
+
+		&.background05 {
+			background: url('../../../../../assets/images/background05.jpg')
+				no-repeat left center fixed;
+      background-size: cover;
+		}
+
+		&.background06 {
+			background: url('../../../../../assets/images/background06.jpg')
+				no-repeat left center fixed;
+      background-size: cover;
+		}
+
+		&.background07 {
+			background: url('../../../../../assets/images/background07.jpg')
+				no-repeat left center fixed;
+      background-size: cover;
+		}
+
+		&.background08 {
+			background: url('../../../../../assets/images/background08.jpg')
+				no-repeat left center fixed;
+      background-size: cover;
+		}
+
+		&.background09 {
+			background: url('../../../../../assets/images/background09.jpg')
+				no-repeat left center fixed;
+      background-size: cover;
+		}
+
+		&.background10 {
+			background: url('../../../../../assets/images/background10.jpg')
+				no-repeat left center fixed;
+      background-size: cover;
+		}
+
+		&-container {
+			height: 100%;
+			display: flex;
+			align-items: flex-start;
+			background-color: rgba(192, 192, 192, 0.6);
+
+			.grey {
+				background-color: rgba(192, 192, 192, 0.6);
+			}
+
+			.blue {
+				background-color: rgba(51, 153, 255, 0.6);
+			}
+
+			.green {
+				background-color: rgba(51, 204, 51, 0.6);
+			}
+
+			mat-horizontal-stepper {
+				height: 90%;
+				max-height: 90%;
+				overflow-y: scroll;
+
+				mat-step-header {
+					padding: 0;
+
+					&::after {
+						border: 0;
+					}
+
+					.mat-step-label {
+						padding: 0;
+						min-width: 30px;
+					}
+
+					.mat-step-icon {
+						height: 10px;
+						width: 10px;
+						margin: 7px 0;
+
+						span {
+							color: transparent;
+						}
+
+						&.mat-step-icon-selected {
+							height: 24px;
+							width: 24px;
+							margin: unset;
+
+							span {
+								color: #f8f9fa;
+							}
+						}
+					}
+				}
+
+				.mat-horizontal-stepper-header-container {
+					padding-left: 20px;
+				}
+
+				.mat-stepper-horizontal-line {
+					top: 13px;
+					border: 0;
+					position: absolute;
+				}
+			}
+		}
+	}
+
+	.classification {
+		height: 100%;
+		max-height: 100%;
+		flex-basis: 50%;
+		display: flex;
+		align-items: center;
+		// overflow-y: scroll;
+	}
+
+	.reports {
+		//flex-basis: 50%;
+		// overflow-y: scroll;
+
+		&.background03 {
+			background: url('../../../../../assets/images/background03.jpg')
+				no-repeat left center fixed;
+      background-size: cover;
+		}
+
+		&-container {
+			height: 100%;
+			display: flex;
+			overflow-y: hidden;
+			align-items: flex-start;
+			background-color: rgba(192, 192, 192, 0.6);
+
+			.w-98 {
+				width: 98% !important;
+			}
+
+			.grey {
+				padding: 10px;
+				border-radius: 20px;
+				background-color: rgba(192, 192, 192, 0.6);
+			}
+
+			.table {
+				font-size: 10px;
+
+				th {
+					padding: 0.1rem;
+					vertical-align: middle;
+					white-space: nowrap;
+				}
+
+				tr {
+					td {
+						padding: 0.1rem;
+						vertical-align: middle;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+	.assessment {
+		.score {
+			width: 100%;
+		}
+
+		.question {
+			width: 100%;
+			//flex-basis: 70%;
+
+			.mat-horizontal-stepper-header-container {
+				visibility: hidden !important;
+				display: none !important;
+			}
+		}
+
+		.classification {
+			width: 100%;
+			flex-basis: 40%;
+
+			.mb-3rem {
+				margin-bottom: 3rem !important;
+			}
+		}
+
+		.reports {
+			width: 100%;
+			flex-basis: 60%;
+
+			&-container {
+				.w-97 {
+					width: 97% !important;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 992px) {
+	.assessment {
+		.question {
+			.mat-horizontal-stepper-header-container {
+				visibility: hidden !important;
+				display: none !important;
+			}
+		}
+	}
+}

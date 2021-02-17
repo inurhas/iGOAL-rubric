@@ -1,0 +1,25 @@
+@import '../abstracts/variables';
+
+/* Background Color */
+@each $color, $value in $colors {
+	.bg-#{'' + $color} {
+		background-color: $value !important;
+	}
+}
+
+/* Background Color */
+@each $color, $value in $colors {
+	.bullet-#{'' + $color} {
+		background-color: $value !important;
+		border-radius: 50%;
+		display: inline-block;
+		height: 20px;
+		width: 20px;
+	}
+}
+
+.invert {
+	img {
+		filter: brightness(0) invert(1);
+	}
+}

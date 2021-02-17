@@ -1,0 +1,37 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import 'bootstrap/bootstrap';
+@import './customize-material.scss';
+
+/* Main Styles */
+@import 'abstracts/variables';
+
+@import 'base/background';
+@import 'base/border';
+@import 'base/cursor';
+@import 'base/font';
+@import 'base/layout';
+@import 'base/text';
+
+@import 'component/input';
+@import 'component/table';
+@import 'component/font';
+@import 'component/button';
+@import 'component/stepper';
+@import 'component/dropdown';
+@import 'component/datepicker';
+@import 'component/radio-button';
+
+@import 'themes/theme';
+
+html {
+	font-family: $font-family !important;
+}
+
+body {
+	height: 100%;
+	background-color: $bg-white-primary;
+}
+
+.tox-notifications-container {
+	visibility: hidden;
+}

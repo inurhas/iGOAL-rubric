@@ -1,0 +1,191 @@
+$color-primary: #002dbb;
+$color-accent: #fef0f0;
+$color-warn: #d8665e;
+$color-black: #000000;
+$color-black-primary: #322c2c;
+$color-black-accent: #0c0c0c;
+$color-white-primary: #ffffff;
+$color-white-accent: #f9f9f9;
+
+$base-colors: (
+	primary: $color-primary,
+	accent: $color-accent,
+	warn: $color-warn,
+	black: $color-black,
+	black-primary: $color-black-primary,
+	black-accent: $color-black-accent,
+	white-primary: $color-white-primary,
+	white-accent: $color-white-accent,
+);
+@import '../abstracts/color';
+
+$font-colors: (
+	001520: #001520,
+	0c0c0c: #0c0c0c,
+	7a7a7a: #7a7a7a,
+	737373: #737373,
+	9a9a9a: #9a9a9a,
+);
+
+$font-family: 'Poppins';
+
+$font-sizes: (
+	10px: 10px,
+	11px: 11px,
+	12px: 12px,
+	13px: 13px,
+	14px: 14px,
+	16px: 16px,
+	18px: 18px,
+	20px: 20px,
+	22px: 22px,
+	24px: 24px,
+	26px: 26px,
+	28px: 28px,
+	30px: 30px,
+	32px: 32px,
+	34px: 34px,
+	36px: 36px,
+	40px: 40px,
+	60px: 60px,
+);
+
+$font-weights: (
+	thin: 100,
+	xlight: 200,
+	light: 300,
+	regular: 400,
+	medium: 500,
+	sbold: 600,
+	bold: 700,
+	xbold: 800,
+);
+
+/* SEPARATOR */
+
+.font-poppins {
+	font-family: $font-family !important;
+}
+
+@each $color, $value in map-merge($font-colors, $base-colors) {
+	.font-#{'' + $color} {
+		color: $value !important;
+	}
+}
+
+@each $size, $value in $font-sizes {
+	.font-#{'' + $size} {
+		font-size: $value !important;
+	}
+}
+
+@each $weight, $value in $font-weights {
+	.font-#{'' + $weight} {
+		font-weight: $value !important;
+	}
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+	@each $color, $value in map-merge($font-colors, $base-colors) {
+		.font-xs-#{'' + $color} {
+			color: $value !important;
+		}
+	}
+
+	@each $size, $value in $font-sizes {
+		.font-xs-#{'' + $size} {
+			font-size: $value !important;
+		}
+	}
+
+	@each $weight, $value in $font-weights {
+		.font-xs-#{'' + $weight} {
+			font-weight: $value !important;
+		}
+	}
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+	@each $color, $value in map-merge($font-colors, $base-colors) {
+		.font-sm-#{'' + $color} {
+			color: $value !important;
+		}
+	}
+
+	@each $size, $value in $font-sizes {
+		.font-sm-#{'' + $size} {
+			font-size: $value !important;
+		}
+	}
+
+	@each $weight, $value in $font-weights {
+		.font-sm-#{'' + $weight} {
+			font-weight: $value !important;
+		}
+	}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+	@each $color, $value in map-merge($font-colors, $base-colors) {
+		.font-md-#{'' + $color} {
+			color: $value !important;
+		}
+	}
+
+	@each $size, $value in $font-sizes {
+		.font-md-#{'' + $size} {
+			font-size: $value !important;
+		}
+	}
+
+	@each $weight, $value in $font-weights {
+		.font-md-#{'' + $weight} {
+			font-weight: $value !important;
+		}
+	}
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+	@each $color, $value in map-merge($font-colors, $base-colors) {
+		.font-lg-#{'' + $color} {
+			color: $value !important;
+		}
+	}
+
+	@each $size, $value in $font-sizes {
+		.font-lg-#{'' + $size} {
+			font-size: $value !important;
+		}
+	}
+
+	@each $weight, $value in $font-weights {
+		.font-lg-#{'' + $weight} {
+			font-weight: $value !important;
+		}
+	}
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+	@each $color, $value in map-merge($font-colors, $base-colors) {
+		.font-xl-#{'' + $color} {
+			color: $value !important;
+		}
+	}
+
+	@each $size, $value in $font-sizes {
+		.font-xl-#{'' + $size} {
+			font-size: $value !important;
+		}
+	}
+
+	@each $weight, $value in $font-weights {
+		.font-xl-#{'' + $weight} {
+			font-weight: $value !important;
+		}
+	}
+}

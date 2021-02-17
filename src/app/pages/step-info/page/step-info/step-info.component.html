@@ -1,0 +1,66 @@
+<div class="step-info h-100">
+	<div class="information">
+		<div class="information-container">
+
+			<div class="my-auto">
+				<p class="font-36px font-xs-18px font-bold mx-5">
+					Please select a statement
+					from the drop-down menu of
+					each competence that fits more
+					closely to what you think about
+					your current state on the competence.
+				</p>
+
+				<button mat-flat-button
+					class="font-20px font-xs-16px rounded-25px bg-info text-white py-2 px-4 mx-5 mb-4"
+					(click)="navigateToQuiz()">Next</button>
+			</div>
+
+		</div>
+	</div>
+	<div class="level">
+
+		<div class="mx-5 mb-4">
+			<mat-card class="rounded-15px bg-info mt-4">
+				<ul class="font-24px font-xs-20px text-white">
+					<li class="mb-2 font-italic">
+						<span class="font-sbold"><u>None</u></span>:
+						"For us, the competence is a new approach for the startups success
+						in the iGOAL context, .. Have/has a limited understanding or experience
+						of the competence and have not yet demonstrated the competence for
+						startups in the iGOAL context". -
+						<span class="text-primary pointer"
+							(click)="openCriteriaDialog('none')">Criteria</span>
+					</li>
+					<li class="mb-2 font-italic">
+						<span class="font-sbold"><u>Basic</u></span>:
+						".. understand the basic knowledge to discuss the competence and ..
+						believe that the underlying concept of competence has a positive effect
+						on the success of the start in the iGOAL context". -
+						<span class="text-primary pointer"
+							(click)="openCriteriaDialog('basic')">Criteria</span>
+					</li>
+					<li class="mb-2 font-italic">
+						<span class="font-sbold"><u>Advanced</u></span>:
+						".. have/has demonstrated the competence in iGOAL settings that
+						contribute positively to the start-up internationalization and ..
+						appreciate the importance of competence in relation to
+						my start-up journey". -
+						<span class="text-primary pointer"
+							(click)="openCriteriaDialog('advanced')">Criteria</span>
+					</li>
+					<li class="mb-2 font-italic">
+						<span class="font-sbold"><u>Expert</u></span>:
+						".. have/has successfully contributed the expertise to several global
+						start-up projects, happy to pass on the expertise on competence and ..
+						help other start-ups to be globally innovative through
+						intergenerational collaboration". -
+						<span class="text-primary pointer"
+							(click)="openCriteriaDialog('expert')">Criteria</span>
+					</li>
+				</ul>
+			</mat-card>
+		</div>
+
+	</div>
+</div>

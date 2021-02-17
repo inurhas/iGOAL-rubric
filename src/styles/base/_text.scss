@@ -1,0 +1,53 @@
+@import '../abstracts/variables';
+
+.lh-20px {
+	line-height: 20px !important;
+}
+
+.lh-26px {
+	line-height: 26px !important;
+}
+
+.lh-34px {
+	line-height: 34px !important;
+}
+
+/* Text Color */
+@each $color, $value in $colors {
+	.text-#{'' + $color} {
+		color: $value !important;
+	}
+}
+
+/* Text Size */
+@each $size, $value in $font-size {
+	.text-#{'' + $size} {
+		font-size: $value !important;
+	}
+}
+
+/* Text Weight */
+@each $weight, $value in $font-weight {
+	.text-weight-#{'' + $weight} {
+		font-weight: $value !important;
+	}
+}
+
+.text-ellipsis {
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	&-left {
+		@extend .text-ellipsis;
+		direction: rtl;
+	}
+}
+
+.text-line {
+	text-decoration: line-through;
+}
+
+.text-nowrap {
+	white-space: nowrap;
+}

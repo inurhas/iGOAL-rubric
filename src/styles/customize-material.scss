@@ -1,0 +1,58 @@
+@import './abstracts/variables';
+
+@import '~@angular/material/theming';
+$custom-typography: mat-typography-config(
+	$font-family: $font-family,
+);
+@include mat-core($custom-typography);
+
+/* BUTTON */
+button:focus {
+	outline: 0 !important;
+}
+button:hover {
+	opacity: 0.8 !important;
+}
+
+.btn-green {
+	height: 29px !important;
+	font-size: $font-lg !important;
+	line-height: $line-height !important;
+}
+
+.mat-button[disabled],
+.mat-flat-button[disabled],
+.mat-icon-button[disabled],
+.mat-stroked-button[disabled] {
+	cursor: not-allowed !important;
+}
+
+/* COLOR */
+.mat-primary,
+.mat-select-arrow,
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+	color: $color-primary !important;
+}
+
+.mat-flat-button.mat-primary,
+.mat-raised-button.mat-primary {
+	background-color: $color-primary !important;
+	color: white !important;
+}
+
+.mat-flat-button.mat-warn,
+.mat-raised-button.mat-warn {
+	background-color: $color-warning !important;
+	color: white !important;
+}
+
+.mat-default {
+	color: $text-color !important;
+}
+
+// Checkbox
+.mat-checkbox {
+	.mat-checkbox-layout {
+		margin-bottom: 0;
+	}
+}
