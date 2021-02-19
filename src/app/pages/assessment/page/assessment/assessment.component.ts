@@ -353,7 +353,6 @@ export class AssessmentComponent implements OnInit {
 	}
 
 	public showCompetency(indexCategory, showScore){
-			console.log(this.assessmentForm)
 			this.competencyText(indexCategory, showScore);
 			const subs = this.dialog
 				.open(AssessmentDialogComponent, {
