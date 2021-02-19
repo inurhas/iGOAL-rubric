@@ -257,16 +257,15 @@
 					Readiness Analysis based on innovation process
 				</p>
 
-				<div class="">
-					<table class="table table-bordered bg-white">
+				<div class="table-responsive">
+					<table class="table table-sm bg-white table-hover">
 						<thead>
 							<tr>
 								<th>Global Innovation Process</th>
 								<th style="background-color: #a9d08e !important;">Ideation process</th>
 								<th style="background-color: #f4b084 !important;">Matching process</th>
 								<th style="background-color: #9bc2e6 !important; ">Design and Development</th>
-								<th class="d-none d-sm-block text-truncate" style="background-color: #c9c9c9 !important;">Commercialization</th>
-								<th class="d-block d-sm-none " style="background-color: #c9c9c9 !important;">Commercia lization</th>
+								<th style="background-color: #c9c9c9 !important;">Commercialization</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -290,8 +289,8 @@
 								<td colspan="4"
 									class="bg-dark"></td>
 							</tr>
-							<tr *ngFor="let report of assessment.reports">
-								<th class="font-medium text-right">
+							<tr *ngFor="let report of assessment.reports; let i = index" >
+								<th class="font-medium text-right" (click)="showCompetency(i,false)">
 									{{ report.label }}
 								</th>
 								<td class="text-center"
@@ -299,7 +298,8 @@
 									[ngClass]="{
 										'bg-almost': data === 'Almost Ready',
 										'bg-half': data === 'Half-Ready'
-									}">
+									}"
+									(click)="showCompetency(i,true)">
 									{{ data }}
 								</td>
 							</tr>

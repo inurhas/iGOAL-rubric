@@ -352,6 +352,37 @@ export class AssessmentComponent implements OnInit {
 		}
 	}
 
+	public showCompetency(indexCategory, showScore){
+			console.log(this.assessmentForm)
+			this.competencyText(indexCategory, showScore);
+			const subs = this.dialog
+				.open(AssessmentDialogComponent, {
+					width: '500px',
+					data: {
+						content: this.content,
+					},
+				})
+				.afterClosed()
+				.subscribe();
+	}
+
+	private competencyText(indexSelected, processSelected) {
+		const questionByCategory = this.questionOption.filter(
+			each => each.form === 'category' + ( 1+indexSelected )
+		);
+		if (questionByCategory){
+				let modalCompetencyText = questionByCategory[0].category + ': </br><ul>';
+				questionByCategory.forEach(element => {
+					let score = (processSelected) ? " <i>Your self reflection score is <b>" +
+	        	this.assessmentForm.get('q' + element.id).value +
+						'</b></i> (0:none -> 3:expert)': ""
+					modalCompetencyText = modalCompetencyText + '<li>'+ element.title +': '
+						+ element.question + score + '</li>';
+				})
+				this.content = modalCompetencyText + '</br></ul>';
+		}
+	}
+
 	private initStar() {
 		this.barChartDataIdeation[0].data = this.assessment.getIdeation();
 		this.barChartDataMatching[0].data = this.assessment.getMatching();
