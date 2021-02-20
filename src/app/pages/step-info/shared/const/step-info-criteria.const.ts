@@ -6,7 +6,7 @@ export const CriteriaNoneConst = `<ul>
 export const CriteriaBasicConst = `<ul>
 <li>Basic understanding or knowledge related to the competence required for innovation in the intergenerational and global context.</li>
 <li>Understands and is willing to discuss terminology and concepts related to competence. </li>
-Have basic or sufficient knowledge to perform routine tasks for the competence.</li></ul> "`;
+Have basic or sufficient knowledge to perform routine tasks for the competence.</li></ul>`;
 
 export const CriteriaAdvancedConst = `<ul>
 <li>Highly detailed knowledge, understanding, an application of competence to be successful start-ups in the iGOAL context.</li>

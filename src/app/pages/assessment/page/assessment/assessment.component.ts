@@ -374,7 +374,7 @@ export class AssessmentComponent implements OnInit {
 				questionByCategory.forEach(element => {
 					let score = (processSelected) ? " <i>Your self reflection score is <b>" +
 	        	this.assessmentForm.get('q' + element.id).value +
-						'</b></i> (0:none -> 3:expert)': ""
+						'</b></i> (0: none -> 3: expert)': ""
 					modalCompetencyText = modalCompetencyText + '<li>'+ element.title +': '
 						+ element.question + score + '</li>';
 				})

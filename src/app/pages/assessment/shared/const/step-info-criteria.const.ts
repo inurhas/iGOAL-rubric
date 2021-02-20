@@ -17,7 +17,7 @@ on the success of the start in the iGOAL context"
 </br> Supporting criteria:</br> <ul>
 <li>Basic understanding or knowledge related to the competence required for innovation in the intergenerational and global context.</li>
 <li>Understands and is willing to discuss terminology and concepts related to competence. </li>
-Have basic or sufficient knowledge to perform routine tasks for the competence.</li></ul> "`;
+Have basic or sufficient knowledge to perform routine tasks for the competence.</li></ul>`;
 
 export const CriteriaAdvancedConst = `
 <span class="font-sbold"><u>Advanced</u></span>:

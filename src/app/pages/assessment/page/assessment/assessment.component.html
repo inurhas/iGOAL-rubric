@@ -39,7 +39,7 @@
 			'background07': stepper.selectedIndex > 14 && stepper.selectedIndex < 19,
 			'background08': stepper.selectedIndex > 18 && stepper.selectedIndex < 23,
 			'background09': stepper.selectedIndex > 22 && stepper.selectedIndex < 25,
-			'background010': stepper.selectedIndex > 24
+			'background10': stepper.selectedIndex > 24
 		}">
 		<div class="question-container">
 
@@ -256,7 +256,6 @@
 				<p class="font-20px font-xs-16px font-sbold text-center mb-1">
 					Readiness Analysis based on innovation process
 				</p>
-
 				<div class="table-responsive">
 					<table class="table table-sm bg-white table-hover">
 						<thead>
@@ -297,7 +296,8 @@
 									*ngFor="let data of report.data"
 									[ngClass]="{
 										'bg-almost': data === 'Almost Ready',
-										'bg-half': data === 'Half-Ready'
+										'bg-half': data === 'Half Ready',
+										'bg-unprepared': data === 'Unprepared'
 									}"
 									(click)="showCompetency(i,true)">
 									{{ data }}
@@ -311,6 +311,11 @@
 					Readiness Charts
 				</p>
 
+				<div class="text-center mb-2 my-2 legend-barChart">
+					<img src="/assets/images/legendBarChart.png"
+						   alt="legend"
+							 style="height: 20px;">
+				</div>
 
         <div class="row mb-2">
           <div class="col-sm-12 col-md-6 col-lg-6 py-2">
